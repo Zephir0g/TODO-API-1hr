@@ -1,8 +1,14 @@
-from flask import jsonify, request
+from flask import jsonify, render_template, request
 from models import db, Task
 
 
 def create_routes(app):
+
+    @app.route('/')
+    def index():
+        tasks = Task.query.all()
+        return render_template('index.html', tasks=tasks)
+
     # create task
     @app.route('/tasks', methods=['POST'])
     def create_task():

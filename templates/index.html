@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+</head>
+<body style="text-align: center;">
+    <h1>TODO List</h1>
+    <ul>
+        {% for task in tasks %}
+        <u>
+            <li>
+                <strong>{{ task.title }}</strong> - 
+                {% if task.is_done %}
+                    <span style="color: green;">Completed</span>
+                {% else %}
+                    <span style="color: red;">Pending</span>
+                {% endif %}
+            </li>
+            <u>
+        {% endfor %}
+    </ul>
+</body>
+</html>
